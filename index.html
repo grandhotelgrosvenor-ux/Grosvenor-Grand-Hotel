@@ -1,300 +1,490 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grosvenor Grand Hotel - Online Food Delivery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Grosvenor Grand Hotel - Warakapola | Online Menu & Dine-in</title>
     <style>
+        :root {
+            --primary-gold: #d4af37;
+            --dark-gold: #aa7c11;
+            --bg-dark: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-light: #f5f5f5;
+            --accent-red: #e63946;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
-            padding: 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
         }
+
+        /* Header & Navigation */
         header {
-            text-align: center;
-            padding: 20px 0;
-            background: #111;
-            color: #d4af37;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        header h1 {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        header p {
-            color: #fff;
-            font-size: 14px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-        }
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        .menu-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .menu-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-        .menu-info {
-            padding: 15px;
-        }
-        .menu-info h4 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        .menu-info .category {
-            font-size: 11px;
-            color: #e67e22;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        .menu-info .price {
-            font-size: 15px;
-            color: #27ae60;
-            font-weight: 700;
-            margin: 8px 0;
-        }
-        .add-btn {
-            width: 100%;
-            padding: 10px;
-            background: #111;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-        .add-btn:hover {
-            background: #d4af37;
-            color: #000;
-        }
-        .cart-box {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            height: fit-content;
-        }
-        .cart-box h3 {
-            border-bottom: 2px solid #f1f1f1;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        #cart-list {
-            list-style: none;
-            margin-bottom: 15px;
-            max-height: 250px;
-            overflow-y: auto;
-        }
-        #cart-list li {
+            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(15,15,15,0.9) 100%);
+            border-bottom: 2px solid var(--primary-gold);
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
-            padding: 6px 0;
-            border-bottom: 1px solid #eee;
         }
-        #cart-list button {
-            background: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 2px 6px;
-            border-radius: 3px;
-            cursor: pointer;
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        .total-price {
-            font-size: 18px;
-            font-weight: 700;
-            text-align: right;
-            margin-bottom: 15px;
-            color: #2c3e50;
+
+        .logo-title h1 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-        .form-group {
+
+        .logo-title p {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(15,15,15,1) 80%);
+            border-bottom: 1px solid #333;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            color: var(--primary-gold);
             margin-bottom: 10px;
         }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 13px;
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ddd;
+            max-width: 600px;
+            margin: 0 auto 25px;
         }
-        .whatsapp-btn {
+
+        .contact-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #fff;
+        }
+
+        .btn-call {
+            background-color: var(--primary-gold);
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+        }
+
+        /* Menu Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-gold);
+            margin: 8px auto 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+        }
+
+        .menu-card img {
             width: 100%;
-            padding: 12px;
-            background-color: #25d366;
-            color: white;
-            border: none;
-            font-size: 15px;
-            font-weight: 700;
-            border-radius: 5px;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+
+        .card-details {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-details h3 {
+            color: var(--primary-gold);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .card-details p {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .order-btn {
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 6px 15px;
+            border-radius: 20px;
             cursor: pointer;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
         }
-        .whatsapp-btn:hover {
-            background-color: #1ebd58;
+
+        .order-btn:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        /* Table Booking Form */
+        .booking-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-gold);
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background-color: #252525;
+            color: #fff;
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            background-color: var(--primary-gold);
+            color: #000;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-gold);
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width, .submit-btn {
+                grid-column: span 1;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header / Nav -->
     <header>
-        <h1>Grosvenor Grand Hotel</h1>
-        <p>Online Food Delivery Service</p>
+        <div class="logo-container">
+            <div class="logo-title">
+                <h1>Grosvenor Grand</h1>
+                <p>Hotel - Warakapola</p>
+            </div>
+        </div>
+        <nav>
+            <a href="#menu">කෑම මෙනුව / Menu</a>
+            <a href="#dinein">පැමිණ ආහාර ගැනීමට / Dine-in</a>
+        </nav>
     </header>
 
-    <div class="container">
-        <!-- Menu Grid -->
-        <div id="menu-items-container" class="menu-grid"></div>
-
-        <!-- Cart Box -->
-        <div class="cart-box">
-            <h3>Kayan Abinci (Cart)</h3>
-            <ul id="cart-list"></ul>
-            <div class="total-price">Jimilla: Rs. <span id="cart-total">0.00</span></div>
-
-            <form id="delivery-form">
-                <div class="form-group">
-                    <input type="text" id="cust-name" placeholder="Suna (Name)" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" id="cust-phone" placeholder="Lambar Waya (Phone Number)" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="cust-address" placeholder="Adireshin Isarwa (Delivery Address)" required></textarea>
-                </div>
-                <button type="submit" class="whatsapp-btn">Yi Odar ta WhatsApp</button>
-            </form>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>ඔබගේ ප්‍රියතම රසය, දැන් අපගේ නව වෙබ් අඩවියෙන්!</h2>
+        <p>ඔන්ලයින් ඩිලිවරි සඳහා හෝ පැමිණ ආහාර ගැනීමට දැන්ම ඇණවුම් කරන්න.</p>
+        <div class="contact-btns">
+            <a href="https://wa.me/94773576129" class="btn btn-whatsapp" target="_blank">WhatsApp Order: 077 357 6129</a>
+            <a href="tel:0707066863" class="btn btn-call">Direct Call: 070 706 6863</a>
         </div>
+    </section>
+
+    <!-- Menu Section -->
+    <h2 class="section-title" id="menu">අපගේ ආහාර මෙනුව (Online Delivery & Takeaway)</h2>
+    <div class="menu-grid">
+
+        <!-- 1. Chicken Rice & Curry -->
+        <div class="menu-card">
+            <img src="Chicken Rice & Curry.jpg" alt="Chicken Rice & Curry">
+            <div class="card-details">
+                <h3>Chicken Rice & Curry</h3>
+                <p>කෙසෙල් කොළයේ ඔතන ලද ප්‍රණීත චිකන් බත් සහ ව්‍යාංජන.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Chicken%20Rice%20%26%20Curry" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Chicken Biriyani -->
+        <div class="menu-card">
+            <img src="Chicken Biriyani.jpg" alt="Chicken Biriyani">
+            <div class="card-details">
+                <h3>Chicken Biriyani</h3>
+                <p>සුවඳ කුළුබඩු සහ මින්චි එකතු කර සකස් කළ චිකන් බිරියානි.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Chicken%20Biriyani" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Mix Fried Rice -->
+        <div class="menu-card">
+            <img src="Mix Rice.jpg" alt="Mix Fried Rice">
+            <div class="card-details">
+                <h3>Mix Fried Rice</h3>
+                <p>කුකුළ මස්, බිත්තර, සලාද සහ උඩින් දැමූ බිත්තරයක් සහිත මික්ස් ෆ්‍රීඩ් රයිස්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Mix%20Fried%20Rice" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Prawns Fried Rice -->
+        <div class="menu-card">
+            <img src="Prawns Frid Rice.jpg" alt="Prawns Fried Rice">
+            <div class="card-details">
+                <h3>Prawns Fried Rice</h3>
+                <p>විශාල ඉස්සන් සහ එළවළු එකතු කර පිසින ලද විශේෂ ෆ්‍රීඩ් රයිස්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Prawns%20Fried%20Rice" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Chicken Devilled -->
+        <div class="menu-card">
+            <img src="Chicken Devilled.jpg" alt="Chicken Devilled">
+            <div class="card-details">
+                <h3>Chicken Devilled</h3>
+                <p>ළූණු, මිරිස් සහ සෝස් සමඟ ස්පයිසි ලෙස සැකසූ චිකන් ඩෙවිල්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Chicken%20Devilled" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Beef Devilled -->
+        <div class="menu-card">
+            <img src="Beaf Devilled.jpg" alt="Beef Devilled">
+            <div class="card-details">
+                <h3>Beef Devilled</h3>
+                <p>ගව මස් සහ ස්පයිසි කුළුබඩු යොදා සකස් කළ රසවත් බීෆ් ඩෙවිල්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Beef%20Devilled" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Pork Devilled -->
+        <div class="menu-card">
+            <img src="Pork Devilled.jpg" alt="Pork Devilled">
+            <div class="card-details">
+                <h3>Pork Devilled</h3>
+                <p>කැප්සිකම් සහ මිරිස් සමඟ සකස් කළ පෝක් ඩෙවිල්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Pork%20Devilled" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Cuttlefish Devilled -->
+        <div class="menu-card">
+            <img src="Cuttle Fish Devilled.jpg" alt="Cuttlefish Devilled">
+            <div class="card-details">
+                <h3>Cuttlefish Devilled</h3>
+                <p>දැල්ලි මුදු සහ මිරිස් එකතු කර සාදන ලද ස්පයිසි ඩෙවිල්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Cuttlefish%20Devilled" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. Prawns Devilled -->
+        <div class="menu-card">
+            <img src="Prawns Devilled.jpg" alt="Prawns Devilled">
+            <div class="card-details">
+                <h3>Prawns Devilled</h3>
+                <p>ඉස්සන් සහ විශේෂ ඩෙවිල් සෝස් යොදා සාදන ලද කෑමක්.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Prawns%20Devilled" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Lake Fish Devilled -->
+        <div class="menu-card">
+            <img src="Lake Fish devilled.jpg" alt="Lake Fish Devilled">
+            <div class="card-details">
+                <h3>Lake Fish Devilled</h3>
+                <p>ප්‍රණීත වැව් මාළු යොදා සකස් කරන ලද ඩෙවිල් කරිය.</p>
+                <div class="card-footer">
+                    <a href="https://wa.me/94773576129?text=I%20would%20like%20to%20order%20Lake%20Fish%20Devilled" class="order-btn" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script>
-        // Saka lambar WhatsApp din otal din ku a nan
-        const HOTEL_WHATSAPP_NUMBER = "94771234567";
+    <!-- Dine-in Table Reservation Section -->
+    <div class="booking-section" id="dinein">
+        <h2 class="section-title" style="margin-top:0;">පැමිණ ආහාර ගැනීමට වේලාවක් වෙන් කරන්න (Dine-in Table Booking)</h2>
+        <form class="booking-form" onsubmit="alert('ඔබගේ Table Reservation ඉල්ලීම සාර්ථකයි! අප ඉක්මනින් ඔබ හා සම්බන්ධ වන්නෙමු.'); return false;">
+            <div class="form-group">
+                <label>ඔබගේ නම / Name</label>
+                <input type="text" required placeholder="ඔබගේ නම">
+            </div>
+            <div class="form-group">
+                <label>දුරකථන අංකය / Phone Number</label>
+                <input type="tel" required placeholder="07X XXXXXXX">
+            </div>
+            <div class="form-group">
+                <label>දිනය / Date</label>
+                <input type="date" required>
+            </div>
+            <div class="form-group">
+                <label>වේලාව / Time</label>
+                <input type="time" required>
+            </div>
+            <div class="form-group full-width">
+                <label>පැමිණෙන පුද්ගලයින් ගණන / Number of Guests</label>
+                <select required>
+                    <option value="1-2">1 - 2 දෙනෙක්</option>
+                    <option value="3-5">3 - 5 දෙනෙක්</option>
+                    <option value="6-10">6 - 10 දෙනෙක්</option>
+                    <option value="10+">10 ට වැඩි (Special Event/Party)</option>
+                </select>
+            </div>
+            <div class="form-group full-width">
+                <label>අමතර සටහන් / Special Request</label>
+                <textarea rows="3" placeholder="කෑම වර්ග හෝ විශේෂ පහසුකම් අවශ්‍ය නම් සඳහන් කරන්න..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Book Table Now</button>
+        </form>
+    </div>
 
-        const menuData = [
-            { id: 1, name: "Chicken Biriyani (Keeri Samba)", category: "Biriyani", price: 1150.00, image: "images/Chicken Biriyani.jpeg" },
-            { id: 2, name: "Chicken Rice & Curry", category: "Rice & Curry", price: 570.00, image: "images/Chicken Rice & Curry.jpeg" },
-            { id: 3, name: "Yellow Rice & Curry", category: "Rice & Curry", price: 1500.00, image: "images/Yellow Rice & Curry.jpg" },
-            { id: 4, name: "Mixed Fried Rice", category: "Fried Rice", price: 1750.00, image: "images/Mix Rice.jpeg" },
-            { id: 5, name: "Prawns Fried Rice", category: "Fried Rice", price: 2100.00, image: "images/Prowns Frid Rice.jpeg" },
-            { id: 6, name: "Beef Devilled (500g)", category: "Portions", price: 3150.00, image: "images/Beaf Devilled.jpeg" },
-            { id: 7, name: "Cuttlefish Devilled (500g)", category: "Portions", price: 2850.00, image: "images/Cuttle Fish Devilled.jpeg" },
-            { id: 8, name: "Lake Fish Devilled", category: "Portions", price: 1800.00, image: "images/Lake Fish devilled.jpeg" },
-            { id: 9, name: "Pork Devilled (500g)", category: "Portions", price: 2000.00, image: "images/Pork Devilled.jpeg" },
-            { id: 10, name: "Prawns Devilled (500g)", category: "Portions", price: 3150.00, image: "images/Prowns Devilled.jpeg" }
-        ];
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Grosvenor Grand Hotel - Warakapola. All Rights Reserved.</p>
+        <p>Order via WhatsApp: 077 357 6129 | Direct Line: 070 706 6863</p>
+    </footer>
 
-        let cart = [];
-
-        function renderMenu() {
-            const container = document.getElementById("menu-items-container");
-            container.innerHTML = menuData.map(item => `
-                <div class="menu-card">
-                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/220x160?text=Grosvenor+Grand'">
-                    <div class="menu-info">
-                        <span class="category">${item.category}</span>
-                        <h4>${item.name}</h4>
-                        <div class="price">Rs. ${item.price.toFixed(2)}</div>
-                    </div>
-                    <button class="add-btn" onclick="addToCart(${item.id})">Ajiye a Cart</button>
-                </div>
-            `).join("");
-        }
-
-        function addToCart(id) {
-            const item = menuData.find(i => i.id === id);
-            const existing = cart.find(i => i.id === id);
-
-            if (existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({ ...item, qty: 1 });
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const cartList = document.getElementById("cart-list");
-            const totalDisplay = document.getElementById("cart-total");
-
-            cartList.innerHTML = cart.map((item, index) => `
-                <li>
-                    <span>${item.name} (x${item.qty})</span>
-                    <span>Rs. ${(item.price * item.qty).toFixed(2)}</span>
-                    <button onclick="removeFromCart(${index})">X</button>
-                </li>
-            `).join("");
-
-            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-            totalDisplay.textContent = total.toFixed(2);
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        document.getElementById("delivery-form").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            if (cart.length === 0) {
-                alert("Don Allah ku zaɓi abinci kafin tura oda!");
-                return;
-            }
-
-            const name = document.getElementById("cust-name").value;
-            const phone = document.getElementById("cust-phone").value;
-            const address = document.getElementById("cust-address").value;
-
-            let message = `*--- GROSVENOR GRAND HOTEL ORDER ---*\n\n`;
-            message += `*Abokin Ciniki (Customer):* ${name}\n`;
-            message += `*Lambar Waya (Phone):* ${phone}\n`;
-            message += `*Adireshi (Address):* ${address}\n\n`;
-            message += `*Oda (Items Ordered):*\n`;
-
-            let total = 0;
-            cart.forEach(item => {
-                let sub = item.price * item.qty;
-                total += sub;
-                message += `• ${item.name} x ${item.qty} - Rs. ${sub.toFixed(2)}\n`;
-            });
-
-            message += `\n*Jimilla (Total Amount):* Rs. ${total.toFixed(2)}`;
-
-            const url = `https://wa.me/${HOTEL_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        });
-
-        document.addEventListener("DOMContentLoaded", renderMenu);
-    </script>
 </body>
 </html>
