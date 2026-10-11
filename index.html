@@ -172,6 +172,7 @@
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 8px;
+            margin-top: 20px;
         }
 
         .section-title::after {
@@ -188,6 +189,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
+            margin-bottom: 30px;
         }
 
         .menu-card {
@@ -458,7 +460,7 @@
 
     <!-- Top Hero Banner Image -->
     <div class="hero-banner-container">
-        <img src="hero-banner.jpg" alt="Grosvenor Grand Hotel Banner" class="hero-banner-img">
+        <img src="banner.jpg" alt="Grosvenor Grand Hotel Banner" class="hero-banner-img">
     </div>
 
     <!-- Hero Actions Section -->
@@ -476,140 +478,194 @@
         
         <!-- Menu Section -->
         <div>
-            <h2 class="section-title" id="menu">අපගේ ආහාර මෙනුව (Online Delivery & Takeaway)</h2>
+            <h2 class="section-title" id="menu">අපගේ ආහාර මෙනුව (Rice & Curry)</h2>
             <div class="menu-grid">
 
-                <!-- 1. Chicken Rice & Curry -->
+                <!-- 1. Vegetable Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Vegetable Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Vegetable Rice & Curry</h3>
+                            <p>ප්‍රණීත එළවළු බත් සහ කරි වර්ග.</p>
+                            <div class="price">Rs. 450.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Vegetable Rice & Curry', 450)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 2. Chicken Rice & Curry -->
                 <div class="menu-card">
                     <img src="Chicken Rice & Curry.jpg" alt="Chicken Rice & Curry">
                     <div class="card-details">
                         <div>
                             <h3>Chicken Rice & Curry</h3>
                             <p>කෙසෙල් කොළයේ ඔතන ලද ප්‍රණීත චිකන් බත්.</p>
-                            <div class="price">Rs. 950.00</div>
+                            <div class="price">Rs. 570.00</div>
                         </div>
-                        <button class="add-btn" onclick="addToCart('Chicken Rice & Curry', 950)">ඇණවුමට එකතු කරන්න</button>
+                        <button class="add-btn" onclick="addToCart('Chicken Rice & Curry', 570)">ඇණවුමට එකතු කරන්න</button>
                     </div>
                 </div>
 
-                <!-- 2. Chicken Biriyani -->
+                <!-- 3. Beef Rice & Curry -->
                 <div class="menu-card">
-                    <img src="Chicken Biriyani.jpg" alt="Chicken Biriyani">
+                    <img src="Chicken Rice & Curry.jpg" alt="Beef Rice & Curry">
                     <div class="card-details">
                         <div>
-                            <h3>Chicken Biriyani</h3>
-                            <p>සුවඳ කුළුබඩු සහ මින්චි එකතු කළ බිරියානි.</p>
-                            <div class="price">Rs. 1,250.00</div>
+                            <h3>Beef Rice & Curry</h3>
+                            <p>රටකජු හා කුළුබඩු සහිත ගව මස් බත්.</p>
+                            <div class="price">Rs. 900.00</div>
                         </div>
-                        <button class="add-btn" onclick="addToCart('Chicken Biriyani', 1250)">ඇණවුමට එකතු කරන්න</button>
+                        <button class="add-btn" onclick="addToCart('Beef Rice & Curry', 900)">ඇණවුමට එකතු කරන්න</button>
                     </div>
                 </div>
 
-                <!-- 3. Mix Fried Rice -->
+                <!-- 4. Pork Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Pork Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Pork Rice & Curry</h3>
+                            <p>සුවඳවත් ඌරු මස් බත් සහ කරි.</p>
+                            <div class="price">Rs. 900.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Pork Rice & Curry', 900)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 5. Prawns Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Prawns Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Prawns Rice & Curry</h3>
+                            <p>රැකුගත් නැවුම් ඉස්සන් සමඟ බත්.</p>
+                            <div class="price">Rs. 900.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Prawns Rice & Curry', 900)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 6. Cuttlefish Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Cuttlefish Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Cuttlefish Rice & Curry</h3>
+                            <p>දැල්ලි කරි සමඟ විශේෂ බත් එකතුවක්.</p>
+                            <div class="price">Rs. 900.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Cuttlefish Rice & Curry', 900)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 7. Egg Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Egg Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Egg Rice & Curry</h3>
+                            <p>බිත්තරයක් සමඟ රසවත් බත් එකක්.</p>
+                            <div class="price">Rs. 480.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Egg Rice & Curry', 480)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 8. Small Fish Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Small Fish Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Small Fish Rice & Curry</h3>
+                            <p>කුඩා මාළු කරි සමඟ සකස් කළ බත්.</p>
+                            <div class="price">Rs. 570.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Small Fish Rice & Curry', 570)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 9. Dry Fish Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Dry Fish Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Dry Fish Rice & Curry</h3>
+                            <p>කරවල කරි සමඟ සාම්ප්‍රදායික බත්.</p>
+                            <div class="price">Rs. 570.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Dry Fish Rice & Curry', 570)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 10. Lake Fish Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Lake Fish Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Lake Fish Rice & Curry</h3>
+                            <p>ප්‍රණීත වැව් මාළු සමඟ බත්.</p>
+                            <div class="price">Rs. 900.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Lake Fish Rice & Curry', 900)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+                <!-- 11. Yellow Special Rice & Curry -->
+                <div class="menu-card">
+                    <img src="Chicken Rice & Curry.jpg" alt="Yellow Special Rice & Curry">
+                    <div class="card-details">
+                        <div>
+                            <h3>Yellow Special Rice & Curry</h3>
+                            <p>විශේෂ කහ බත් සංග්‍රහය.</p>
+                            <div class="price">Rs. 1,150.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Yellow Special Rice & Curry', 1150)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Fried Rice Section -->
+            <h2 class="section-title">Fried Rice වර්ග</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="Chicken Biriyani.jpg" alt="Chicken Fried Rice">
+                    <div class="card-details">
+                        <div>
+                            <h3>Chicken Fried Rice</h3>
+                            <p>රසවත් චිකන් ෆ්‍රීඩ් රයිස් (Keeri Samba / Basmathi)</p>
+                            <div class="price">Rs. 950.00 - 1,150.00</div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('Chicken Fried Rice', 950)">ඇණවුමට එකතු කරන්න</button>
+                    </div>
+                </div>
+
                 <div class="menu-card">
                     <img src="Mix Rice.jpg" alt="Mix Fried Rice">
                     <div class="card-details">
                         <div>
                             <h3>Mix Fried Rice</h3>
-                            <p>කුකුළ මස්, බිත්තර සහ සලාද සහිත මික්ස් රයිස්.</p>
-                            <div class="price">Rs. 1,100.00</div>
+                            <p>විවිධ මස් වර්ග එකතු කළ මික්ස් රයිස්.</p>
+                            <div class="price">Rs. 1,750.00 - 1,850.00</div>
                         </div>
-                        <button class="add-btn" onclick="addToCart('Mix Fried Rice', 1100)">ඇණවුමට එකතු කරන්න</button>
+                        <button class="add-btn" onclick="addToCart('Mix Fried Rice', 1750)">ඇණවුමට එකතු කරන්න</button>
                     </div>
                 </div>
 
-                <!-- 4. Prawns Fried Rice -->
                 <div class="menu-card">
-                    <img src="Prawns Frid Rice.jpg" alt="Prawns Fried Rice">
+                    <img src="Prawns Frid Rice.jpg" alt="Seafood Fried Rice">
                     <div class="card-details">
                         <div>
-                            <h3>Prawns Fried Rice</h3>
-                            <p>විශාල ඉස්සන් සහ එළවළු යොදාගත් ෆ්‍රීඩ් රයිස්.</p>
-                            <div class="price">Rs. 1,350.00</div>
+                            <h3>Seafood Fried Rice</h3>
+                            <p>මුහුදු ආහාරවලින් සැකසූ ෆ්‍රීඩ් රයිස්.</p>
+                            <div class="price">Rs. 1,750.00 - 1,850.00</div>
                         </div>
-                        <button class="add-btn" onclick="addToCart('Prawns Fried Rice', 1350)">ඇණවුමට එකතු කරන්න</button>
+                        <button class="add-btn" onclick="addToCart('Seafood Fried Rice', 1750)">ඇණවුමට එකතු කරන්න</button>
                     </div>
                 </div>
-
-                <!-- 5. Chicken Devilled -->
-                <div class="menu-card">
-                    <img src="Chicken Devilled.jpg" alt="Chicken Devilled">
-                    <div class="card-details">
-                        <div>
-                            <h3>Chicken Devilled</h3>
-                            <p>ස්පයිසි ළූණු සහ මිරිස් සමඟ සැකසූ චිකන් ඩෙවිල්.</p>
-                            <div class="price">Rs. 980.00</div>
-                        </div>
-                        <button class="add-btn" onclick="addToCart('Chicken Devilled', 980)">ඇණවුමට එකතු කරන්න</button>
-                    </div>
-                </div>
-
-                <!-- 6. Beef Devilled -->
-                <div class="menu-card">
-                    <img src="Beaf Devilled.jpg" alt="Beef Devilled">
-                    <div class="card-details">
-                        <div>
-                            <h3>Beef Devilled</h3>
-                            <p>ගව මස් සහ කුළුබඩු යොදා සකස් කළ ඩෙවිල්.</p>
-                            <div class="price">Rs. 1,200.00</div>
-                        </div>
-                        <button class="add-btn" onclick="addToCart('Beef Devilled', 1200)">ඇණවුමට එකතු කරන්න</button>
-                    </div>
-                </div>
-
-                <!-- 7. Pork Devilled -->
-                <div class="menu-card">
-                    <img src="Pork Devilled.jpg" alt="Pork Devilled">
-                    <div class="card-details">
-                        <div>
-                            <h3>Pork Devilled</h3>
-                            <p>කැප්සිකම් සහ මිරිස් සමඟ සකස් කළ පෝක් ඩෙවිල්.</p>
-                            <div class="price">Rs. 1,150.00</div>
-                        </div>
-                        <button class="add-btn" onclick="addToCart('Pork Devilled', 1150)">ඇණවුමට එකතු කරන්න</button>
-                    </div>
-                </div>
-
-                <!-- 8. Cuttlefish Devilled -->
-                <div class="menu-card">
-                    <img src="Cuttle Fish Devilled.jpg" alt="Cuttlefish Devilled">
-                    <div class="card-details">
-                        <div>
-                            <h3>Cuttlefish Devilled</h3>
-                            <p>දැල්ලි මුදු සහ මිරිස් එකතු කර සාදන ලද ඩෙවිල්.</p>
-                            <div class="price">Rs. 1,300.00</div>
-                        </div>
-                        <button class="add-btn" onclick="addToCart('Cuttlefish Devilled', 1300)">ඇණවුමට එකතු කරන්න</button>
-                    </div>
-                </div>
-
-                <!-- 9. Prawns Devilled -->
-                <div class="menu-card">
-                    <img src="Prawns Devilled.jpg" alt="Prawns Devilled">
-                    <div class="card-details">
-                        <div>
-                            <h3>Prawns Devilled</h3>
-                            <p>ඉස්සන් සහ විශේෂ ඩෙවිල් සෝස් යොදා සකස් කළ.</p>
-                            <div class="price">Rs. 1,400.00</div>
-                        </div>
-                        <button class="add-btn" onclick="addToCart('Prawns Devilled', 1400)">ඇණවුමට එකතු කරන්න</button>
-                    </div>
-                </div>
-
-                <!-- 10. Lake Fish Devilled -->
-                <div class="menu-card">
-                    <img src="Lake Fish devilled.jpg" alt="Lake Fish Devilled">
-                    <div class="card-details">
-                        <div>
-                            <h3>Lake Fish Devilled</h3>
-                            <p>ප්‍රණීත වැව් මාළු යොදා සකස් කරන ලද ඩෙවිල් කරිය.</p>
-                            <div class="price">Rs. 1,100.00</div>
-                        </div>
-                        <button class="add-btn" onclick="addToCart('Lake Fish Devilled', 1100)">ඇණවුමට එකතු කරන්න</button>
-                    </div>
-                </div>
-
             </div>
+
         </div>
 
         <!-- Cart Sidebar -->
@@ -719,4 +775,53 @@
                 total += item.price * item.qty;
                 container.innerHTML += `
                     <div class="cart-item">
-                        <span
+                        <span class="cart-item-name">${item.name} (Rs. ${item.price})</span>
+                        <div class="cart-item-controls">
+                            <button onclick="changeQty('${item.name}', -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button onclick="changeQty('${item.name}', 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalDisplay.innerText = 'Rs. ' + total.toLocaleString() + '.00';
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert('කරුණාකර පළමුව මෙනුවෙන් කෑම වර්ග තෝරන්න.');
+                return;
+            }
+
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+
+            if (!name || !phone || !address) {
+                alert('කරුණාකර ඔබගේ නම, දුරකථන අංකය සහ ලිපිනය ඇතුළත් කරන්න.');
+                return;
+            }
+
+            let message = `*නව ඔන්ලයින් ඇණවුමක් (Grosvenor Grand Hotel)*\n\n`;
+            message += `*නම:* ${name}\n`;
+            message += `*දුරකථන අංකය:* ${phone}\n`;
+            message += `*ලිපිනය:* ${address}\n\n`;
+            message += `*ඇණවුම් කළ ආහාර:*\n`;
+
+            let total = 0;
+            cart.forEach(item => {
+                let sub = item.price * item.qty;
+                total += sub;
+                message += `- ${item.name} x ${item.qty} = Rs. ${sub.toLocaleString()}.00\n`;
+            });
+
+            message += `\n*මුළු එකතුව:* Rs. ${total.toLocaleString()}.00`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/94773576129?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
