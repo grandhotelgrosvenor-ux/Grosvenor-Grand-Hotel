@@ -52,6 +52,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary-gold);
+            background: #fff;
         }
 
         .logo-title h1 {
@@ -90,7 +91,7 @@
 
         .hero-banner-img {
             width: 100%;
-            max-height: 480px;
+            max-height: 500px;
             object-fit: cover;
             border-radius: 15px;
             border: 2px solid var(--primary-gold);
@@ -718,53 +719,4 @@
                 total += item.price * item.qty;
                 container.innerHTML += `
                     <div class="cart-item">
-                        <span class="cart-item-name">${item.name} (Rs. ${item.price})</span>
-                        <div class="cart-item-controls">
-                            <button onclick="changeQty('${item.name}', -1)">-</button>
-                            <span>${item.qty}</span>
-                            <button onclick="changeQty('${item.name}', 1)">+</button>
-                        </div>
-                    </div>
-                `;
-            });
-
-            totalDisplay.innerText = 'Rs. ' + total.toLocaleString() + '.00';
-        }
-
-        function sendWhatsAppOrder() {
-            if (cart.length === 0) {
-                alert('කරුණාකර පළමුව මෙනුවෙන් කෑම වර්ග තෝරන්න.');
-                return;
-            }
-
-            const name = document.getElementById('customerName').value.trim();
-            const phone = document.getElementById('customerPhone').value.trim();
-            const address = document.getElementById('customerAddress').value.trim();
-
-            if (!name || !phone || !address) {
-                alert('කරුණාකර ඔබගේ නම, දුරකථන අංකය සහ ලිපිනය ඇතුළත් කරන්න.');
-                return;
-            }
-
-            let message = `*නව ඔන්ලයින් ඇණවුමක් (Grosvenor Grand Hotel)*\n\n`;
-            message += `*නම:* ${name}\n`;
-            message += `*දුරකථන අංකය:* ${phone}\n`;
-            message += `*ලිපිනය:* ${address}\n\n`;
-            message += `*ඇණවුම් කළ ආහාර:*\n`;
-
-            let total = 0;
-            cart.forEach(item => {
-                let sub = item.price * item.qty;
-                total += sub;
-                message += `- ${item.name} x ${item.qty} = Rs. ${sub.toLocaleString()}.00\n`;
-            });
-
-            message += `\n*මුළු එකතුව:* Rs. ${total.toLocaleString()}.00`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/94773576129?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
-</body>
-</html>
+                        <span
