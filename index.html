@@ -3,279 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grosvenor Grand Hotel - Warakapola | Official Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Grosvenor Grand Hotel - Online Food Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-gold: #D4AF37;
-            --bg-black: #0D0D0D;
-            --card-black: #1A1A1A;
-            --text-white: #FFFFFF;
-            --text-gray: #CCCCCC;
-            --whatsapp-green: #25D366;
-            --call-blue: #007AFF;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-black); color: var(--text-white); line-height: 1.6; }
-
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
         header {
-            background: rgba(13, 13, 13, 0.95);
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 20px 0;
+            background: #111;
+            color: #d4af37;
+            border-radius: 8px;
+            margin-bottom: 30px;
         }
-
-        .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 20px;
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
         }
-
-        .logo-container { display: flex; align-items: center; gap: 12px; }
-
-        .logo-img {
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-gold);
-            object-fit: cover;
+        header p {
+            color: #fff;
+            font-size: 14px;
         }
-
-        .logo-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem; color: var(--primary-gold);
-            letter-spacing: 1px; text-transform: uppercase;
-        }
-
-        .logo-text p { font-size: 0.65rem; color: var(--text-gray); letter-spacing: 2px; }
-
-        .contact-header-btns { display: flex; gap: 10px; }
-
-        .btn-call-small, .btn-wa-small {
-            padding: 8px 14px; border-radius: 20px; text-decoration: none;
-            font-weight: 500; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;
-        }
-
-        .btn-call-small { background: transparent; border: 1px solid var(--primary-gold); color: var(--primary-gold); }
-        .btn-wa-small { background: var(--whatsapp-green); color: white; }
-
-        .hero {
-            margin-top: 70px; padding: 50px 20px 30px; text-align: center;
-            background: linear-gradient(180deg, rgba(13,13,13,0.85) 0%, rgba(13,13,13,1) 100%), url('images/hero-bg.jpg');
-            background-size: cover; background-position: center;
-            border-bottom: 2px solid var(--primary-gold);
-        }
-
-        .hero h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary-gold); margin-bottom: 10px; }
-        .hero p { color: var(--text-gray); max-width: 600px; margin: 0 auto 20px; font-size: 0.95rem; }
-
-        .hero-contact-box { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
-
-        .action-btn {
-            padding: 12px 24px; border-radius: 30px; text-decoration: none;
-            font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .btn-wa { background-color: var(--whatsapp-green); color: #fff; }
-        .btn-call { background-color: var(--call-blue); color: #fff; }
-
-        .menu-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-
-        .section-title {
-            font-family: 'Playfair Display', serif; color: var(--primary-gold);
-            font-size: 1.5rem; margin: 35px 0 15px;
-            border-left: 4px solid var(--primary-gold); padding-left: 10px;
-        }
-
-        .menu-grid {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: 2fr 1fr;
             gap: 20px;
         }
-
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
         .menu-card {
-            background: var(--card-black); border-radius: 12px;
-            overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.15);
-            display: flex; flex-direction: column; justify-content: space-between;
-            transition: transform 0.3s;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-
-        .menu-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
-
-        .food-img {
-            width: 100%; height: 160px; object-fit: cover;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        .menu-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
         }
-
-        .card-content { padding: 15px; }
-        .card-title { font-size: 1rem; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
-
-        .card-footer {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 10px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,0.1);
+        .menu-info {
+            padding: 15px;
         }
-
-        .price { font-size: 1rem; font-weight: 700; color: var(--primary-gold); }
-
-        .order-item-btn {
-            background: transparent; border: 1px solid var(--whatsapp-green);
-            color: var(--whatsapp-green); padding: 6px 12px; border-radius: 6px;
-            text-decoration: none; font-size: 0.8rem; font-weight: 500;
-            display: flex; align-items: center; gap: 5px; transition: 0.3s;
+        .menu-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
         }
-
-        .order-item-btn:hover { background: var(--whatsapp-green); color: #fff; }
-
-        footer {
-            background: #050505; border-top: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 30px 20px; margin-top: 50px; text-align: center;
-            color: var(--text-gray); font-size: 0.85rem;
+        .menu-info .category {
+            font-size: 11px;
+            color: #e67e22;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .menu-info .price {
+            font-size: 15px;
+            color: #27ae60;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        .add-btn {
+            width: 100%;
+            padding: 10px;
+            background: #111;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .add-btn:hover {
+            background: #d4af37;
+            color: #000;
+        }
+        .cart-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        .cart-box h3 {
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        #cart-list {
+            list-style: none;
+            margin-bottom: 15px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        #cart-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+        #cart-list button {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .total-price {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: right;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+        .whatsapp-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .whatsapp-btn:hover {
+            background-color: #1ebd58;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="logo.jpg" alt="Grosvenor Grand Hotel Logo" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=100'">
-                <div class="logo-text">
-                    <h1>Grosvenor Grand</h1>
-                    <p>HOTEL - WARAKAPOLA</p>
-                </div>
-            </div>
-            <div class="contact-header-btns">
-                <a href="tel:+94707066863" class="btn-call-small"><i class="fas fa-phone"></i> Call</a>
-                <a href="https://wa.me/94773576129" target="_blank" class="btn-wa-small"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            </div>
-        </div>
+        <h1>Grosvenor Grand Hotel</h1>
+        <p>Online Food Delivery Service</p>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h2>Online Menu & Fast Delivery</h2>
-        <p>Grosvenor Grand Hotel Warakapola - Order your favorite meals directly via WhatsApp or Phone Call.</p>
-        <div class="hero-contact-box">
-            <a href="https://wa.me/94773576129?text=Hi,%20I%20want%20to%20place%20an%20order." target="_blank" class="action-btn btn-wa">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp (077 357 6129)
-            </a>
-            <a href="tel:+94707066863" class="action-btn btn-call">
-                <i class="fas fa-phone-alt"></i> Call Us (070 706 6863)
-            </a>
-        </div>
-    </section>
+    <div class="container">
+        <!-- Menu Grid -->
+        <div id="menu-items-container" class="menu-grid"></div>
 
-    <!-- Menu Section -->
-    <div class="menu-container">
-        
-        <!-- Rice & Curry -->
-        <h3 class="section-title">Rice & Curry</h3>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="images/vegetable-rice.jpg" class="food-img" alt="Vegetable Rice" onerror="this.src='https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Vegetable Rice & Curry</div>
-                    <div class="card-footer"><span class="price">Rs. 450.00</span><a href="https://wa.me/94773576129?text=Order:%20Vegetable%20Rice%20%26%20Curry%20(Rs.450)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/chicken-rice.jpg" class="food-img" alt="Chicken Rice" onerror="this.src='https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Chicken Rice & Curry</div>
-                    <div class="card-footer"><span class="price">Rs. 570.00</span><a href="https://wa.me/94773576129?text=Order:%20Chicken%20Rice%20%26%20Curry%20(Rs.570)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/beef-rice.jpg" class="food-img" alt="Beef Rice" onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Beef Rice & Curry</div>
-                    <div class="card-footer"><span class="price">Rs. 900.00</span><a href="https://wa.me/94773576129?text=Order:%20Beef%20Rice%20%26%20Curry%20(Rs.900)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/yellow-rice.jpg" class="food-img" alt="Yellow Special Rice" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Yellow Special Rice & Curry</div>
-                    <div class="card-footer"><span class="price">Rs. 1,150.00</span><a href="https://wa.me/94773576129?text=Order:%20Yellow%20Special%20Rice%20(Rs.1150)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-        </div>
+        <!-- Cart Box -->
+        <div class="cart-box">
+            <h3>Kayan Abinci (Cart)</h3>
+            <ul id="cart-list"></ul>
+            <div class="total-price">Jimilla: Rs. <span id="cart-total">0.00</span></div>
 
-        <!-- Fried Rice & Biriyani -->
-        <h3 class="section-title">Fried Rice & Biriyani</h3>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="images/chicken-fried-rice.jpg" class="food-img" alt="Chicken Fried Rice" onerror="this.src='https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Chicken Fried Rice (Keeri Samba)</div>
-                    <div class="card-footer"><span class="price">Rs. 950.00</span><a href="https://wa.me/94773576129?text=Order:%20Chicken%20Fried%20Rice%20Keeri%20Samba%20(Rs.950)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
+            <form id="delivery-form">
+                <div class="form-group">
+                    <input type="text" id="cust-name" placeholder="Suna (Name)" required>
                 </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/basmathi-fried-rice.jpg" class="food-img" alt="Chicken Fried Rice Basmathi" onerror="this.src='https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Chicken Fried Rice (Basmathi)</div>
-                    <div class="card-footer"><span class="price">Rs. 1,150.00</span><a href="https://wa.me/94773576129?text=Order:%20Chicken%20Fried%20Rice%20Basmathi%20(Rs.1150)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
+                <div class="form-group">
+                    <input type="tel" id="cust-phone" placeholder="Lambar Waya (Phone Number)" required>
                 </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/biriyani.jpg" class="food-img" alt="Chicken Biriyani" onerror="this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Chicken Biriyani Portion</div>
-                    <div class="card-footer"><span class="price">Rs. 1,150.00</span><a href="https://wa.me/94773576129?text=Order:%20Chicken%20Biriyani%20(Rs.1150)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
+                <div class="form-group">
+                    <textarea id="cust-address" placeholder="Adireshin Isarwa (Delivery Address)" required></textarea>
                 </div>
-            </div>
+                <button type="submit" class="whatsapp-btn">Yi Odar ta WhatsApp</button>
+            </form>
         </div>
-
-        <!-- Kottu & Cheese Kottu -->
-        <h3 class="section-title">Kottu & Cheese Kottu</h3>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="images/chicken-kottu.jpg" class="food-img" alt="Chicken Kottu" onerror="this.src='https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Chicken Kottu</div>
-                    <div class="card-footer"><span class="price">Rs. 950.00</span><a href="https://wa.me/94773576129?text=Order:%20Chicken%20Kottu%20(Rs.950)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/cheese-kottu.jpg" class="food-img" alt="Chicken Cheese Kottu" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Chicken Cheese Kottu</div>
-                    <div class="card-footer"><span class="price">Rs. 1,350.00</span><a href="https://wa.me/94773576129?text=Order:%20Chicken%20Cheese%20Kottu%20(Rs.1350)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Devilled & Kilo Bites -->
-        <h3 class="section-title">Devilled & Kilo Bites (500g)</h3>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="images/devilled-chicken.jpg" class="food-img" alt="Devilled Chicken" onerror="this.src='https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Devilled / Fried Chicken (500g)</div>
-                    <div class="card-footer"><span class="price">Rs. 2,250.00</span><a href="https://wa.me/94773576129?text=Order:%20Devilled%20Chicken%20500g%20(Rs.2250)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-            <div class="menu-card">
-                <img src="images/hot-butter-cuttlefish.jpg" class="food-img" alt="Hot Butter Cuttlefish" onerror="this.src='https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500'">
-                <div class="card-content">
-                    <div class="card-title">Hot Butter Cuttlefish (500g)</div>
-                    <div class="card-footer"><span class="price">Rs. 3,500.00</span><a href="https://wa.me/94773576129?text=Order:%20Hot%20Butter%20Cuttlefish%20500g%20(Rs.3500)" class="order-item-btn" target="_blank"><i class="fab fa-whatsapp"></i> Order</a></div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Grosvenor Grand Hotel Warakapola. All Rights Reserved.</p>
-        <p style="margin-top: 5px; color: var(--primary-gold);">Delivery Hotline: 077 357 6129 / 070 706 6863</p>
-    </footer>
+    <script>
+        // Saka lambar WhatsApp din otal din ku a nan
+        const HOTEL_WHATSAPP_NUMBER = "94771234567";
 
+        const menuData = [
+            { id: 1, name: "Chicken Biriyani (Keeri Samba)", category: "Biriyani", price: 1150.00, image: "images/Chicken Biriyani.jpeg" },
+            { id: 2, name: "Chicken Rice & Curry", category: "Rice & Curry", price: 570.00, image: "images/Chicken Rice & Curry.jpeg" },
+            { id: 3, name: "Yellow Rice & Curry", category: "Rice & Curry", price: 1500.00, image: "images/Yellow Rice & Curry.jpg" },
+            { id: 4, name: "Mixed Fried Rice", category: "Fried Rice", price: 1750.00, image: "images/Mix Rice.jpeg" },
+            { id: 5, name: "Prawns Fried Rice", category: "Fried Rice", price: 2100.00, image: "images/Prowns Frid Rice.jpeg" },
+            { id: 6, name: "Beef Devilled (500g)", category: "Portions", price: 3150.00, image: "images/Beaf Devilled.jpeg" },
+            { id: 7, name: "Cuttlefish Devilled (500g)", category: "Portions", price: 2850.00, image: "images/Cuttle Fish Devilled.jpeg" },
+            { id: 8, name: "Lake Fish Devilled", category: "Portions", price: 1800.00, image: "images/Lake Fish devilled.jpeg" },
+            { id: 9, name: "Pork Devilled (500g)", category: "Portions", price: 2000.00, image: "images/Pork Devilled.jpeg" },
+            { id: 10, name: "Prawns Devilled (500g)", category: "Portions", price: 3150.00, image: "images/Prowns Devilled.jpeg" }
+        ];
+
+        let cart = [];
+
+        function renderMenu() {
+            const container = document.getElementById("menu-items-container");
+            container.innerHTML = menuData.map(item => `
+                <div class="menu-card">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/220x160?text=Grosvenor+Grand'">
+                    <div class="menu-info">
+                        <span class="category">${item.category}</span>
+                        <h4>${item.name}</h4>
+                        <div class="price">Rs. ${item.price.toFixed(2)}</div>
+                    </div>
+                    <button class="add-btn" onclick="addToCart(${item.id})">Ajiye a Cart</button>
+                </div>
+            `).join("");
+        }
+
+        function addToCart(id) {
+            const item = menuData.find(i => i.id === id);
+            const existing = cart.find(i => i.id === id);
+
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById("cart-list");
+            const totalDisplay = document.getElementById("cart-total");
+
+            cartList.innerHTML = cart.map((item, index) => `
+                <li>
+                    <span>${item.name} (x${item.qty})</span>
+                    <span>Rs. ${(item.price * item.qty).toFixed(2)}</span>
+                    <button onclick="removeFromCart(${index})">X</button>
+                </li>
+            `).join("");
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            totalDisplay.textContent = total.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        document.getElementById("delivery-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                alert("Don Allah ku zaɓi abinci kafin tura oda!");
+                return;
+            }
+
+            const name = document.getElementById("cust-name").value;
+            const phone = document.getElementById("cust-phone").value;
+            const address = document.getElementById("cust-address").value;
+
+            let message = `*--- GROSVENOR GRAND HOTEL ORDER ---*\n\n`;
+            message += `*Abokin Ciniki (Customer):* ${name}\n`;
+            message += `*Lambar Waya (Phone):* ${phone}\n`;
+            message += `*Adireshi (Address):* ${address}\n\n`;
+            message += `*Oda (Items Ordered):*\n`;
+
+            let total = 0;
+            cart.forEach(item => {
+                let sub = item.price * item.qty;
+                total += sub;
+                message += `• ${item.name} x ${item.qty} - Rs. ${sub.toFixed(2)}\n`;
+            });
+
+            message += `\n*Jimilla (Total Amount):* Rs. ${total.toFixed(2)}`;
+
+            const url = `https://wa.me/${HOTEL_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        });
+
+        document.addEventListener("DOMContentLoaded", renderMenu);
+    </script>
 </body>
 </html>
