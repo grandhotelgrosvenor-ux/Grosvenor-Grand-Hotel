@@ -116,72 +116,134 @@
         .btn-call:hover {
             background-color: #d35400;
         }
-        .container {
+        .main-layout {
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        @media(max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
         }
         .category-title {
             background-color: #1a252f;
             color: #f39c12;
             padding: 12px 20px;
             border-radius: 8px;
-            margin-top: 40px;
+            margin-top: 30px;
             margin-bottom: 20px;
             font-size: 20px;
             border-left: 5px solid #f39c12;
         }
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             gap: 20px;
         }
         .menu-card {
             background: white;
             border-radius: 10px;
-            padding: 18px;
+            padding: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
-            overflow: hidden;
+            transition: transform 0.2s;
         }
         .menu-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
         .menu-card img {
             width: 100%;
-            height: 180px;
+            height: 140px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-        .menu-card h3 {
-            font-size: 17px;
-            color: #2c3e50;
-            margin-bottom: 6px;
-            text-transform: capitalize;
-        }
-        .menu-card p {
-            font-size: 13px;
-            color: #666;
+            border-radius: 6px;
             margin-bottom: 10px;
         }
+        .menu-card h3 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
         .price-tag {
+            font-size: 15px;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 8px 0;
+        }
+        .add-btn {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        .add-btn:hover {
+            background-color: #d35400;
+        }
+        /* Cart Sidebar */
+        .cart-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+        .cart-section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 8px;
+        }
+        .cart-items {
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
             font-size: 16px;
             font-weight: bold;
             color: #27ae60;
-            margin-top: auto;
+            margin-bottom: 15px;
         }
-        .price-sub {
-            font-size: 13px;
-            color: #444;
+        .checkout-btn {
             display: block;
-            margin-top: 3px;
-            font-weight: 600;
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        .checkout-btn:hover {
+            background-color: #1eb854;
         }
         footer {
             background-color: #1a252f;
@@ -209,7 +271,7 @@
         </div>
         <nav>
             <a href="#menu">කෑම මෙනුව</a>
-            <a href="#dinein">වෙන් කරවා ගැනීමට</a>
+            <a href="#cart">ඇණවුම් මල්ල (Cart)</a>
         </nav>
     </header>
 
@@ -227,124 +289,106 @@
         </div>
     </div>
 
-    <div class="container" id="menu">
+    <div class="main-layout">
+        <!-- Menu Items Section -->
+        <div id="menu">
+            <!-- Rice and Curry -->
+            <h2 class="category-title">🍛 Rice & Curry</h2>
+            <div class="menu-grid">
+                <div class="menu-card"><div><h3>Vegetable Rice & Curry</h3><p>ප්‍රණීත එළවළු බත් සහ කරි වර්ග.</p><div class="price-tag">Rs. 450</div></div><button class="add-btn" onclick="addToCart('Vegetable Rice & Curry', 450)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Egg Rice & Curry</h3><p>බිත්තරයක් සමඟ රසවත් බත් එකක්.</p><div class="price-tag">Rs. 480</div></div><button class="add-btn" onclick="addToCart('Egg Rice & Curry', 480)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Chicken Rice & Curry</h3><p>කෙසෙල් කොළයේ ඔතන ලද ප්‍රණීත චිකන් බත්.</p><div class="price-tag">Rs. 570</div></div><button class="add-btn" onclick="addToCart('Chicken Rice & Curry', 570)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Dry Fish Rice & Curry</h3><p>කරවල කරි සමඟ සාම්ප්‍රදායික බත්.</p><div class="price-tag">Rs. 570</div></div><button class="add-btn" onclick="addToCart('Dry Fish Rice & Curry', 570)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Beef Rice & Curry</h3><p>රටකජු හා කුළුබඩු සහිත ගව මස් බත්.</p><div class="price-tag">Rs. 900</div></div><button class="add-btn" onclick="addToCart('Beef Rice & Curry', 900)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Pork Rice & Curry</h3><p>සුවඳවත් ඌරු මස් බත් සහ කරි.</p><div class="price-tag">Rs. 900</div></div><button class="add-btn" onclick="addToCart('Pork Rice & Curry', 900)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Prawns Rice & Curry</h3><p>රැකුගත් නැවුම් ඉස්සන් සමඟ බත්.</p><div class="price-tag">Rs. 900</div></div><button class="add-btn" onclick="addToCart('Prawns Rice & Curry', 900)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Cuttlefish Rice & Curry</h3><p>දැල්ලි කරි සමඟ විශේෂ බත් එකතුවක්.</p><div class="price-tag">Rs. 900</div></div><button class="add-btn" onclick="addToCart('Cuttlefish Rice & Curry', 900)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Lake Fish Rice & Curry</h3><p>ප්‍රණීත වැව් මාළු සමඟ බත්.</p><div class="price-tag">Rs. 900</div></div><button class="add-btn" onclick="addToCart('Lake Fish Rice & Curry', 900)">Add to Cart</button></div>
+                <div class="menu-card"><img src="Yellow Rice & Curry.jpg" alt="Yellow Rice"><div><h3>Yellow Special Rice & Curry</h3><p>විශේෂ කහ බත් සංග්‍රහය.</p><div class="price-tag">Rs. 1,150</div></div><button class="add-btn" onclick="addToCart(\'Yellow Special Rice & Curry\', 1150)">Add to Cart</button></div>
+            </div>
 
-        <!-- Rice and Curry -->
-        <h2 class="category-title">🍛 Rice & Curry</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><div><h3>Vegetable Rice & Curry</h3><p>ප්‍රණීත එළවළු බත් සහ කරි වර්ග.</p></div><div class="price-tag">Rs. 450.00</div></div>
-            <div class="menu-card"><div><h3>Egg Rice & Curry</h3><p>බිත්තරයක් සමඟ රසවත් බත් එකක්.</p></div><div class="price-tag">Rs. 480.00</div></div>
-            <div class="menu-card"><div><h3>Chicken Rice & Curry</h3><p>කෙසෙල් කොළයේ ඔතන ලද ප්‍රණීත චිකන් බත්.</p></div><div class="price-tag">Rs. 570.00</div></div>
-            <div class="menu-card"><div><h3>Dry Fish Rice & Curry</h3><p>කරවල කරි සමඟ සාම්ප්‍රදායික බත්.</p></div><div class="price-tag">Rs. 570.00</div></div>
-            <div class="menu-card"><div><h3>Beef Rice & Curry</h3><p>රටකජු හා කුළුබඩු සහිත ගව මස් බත්.</p></div><div class="price-tag">Rs. 900.00</div></div>
-            <div class="menu-card"><div><h3>Pork Rice & Curry</h3><p>සුවඳවත් ඌරු මස් බත් සහ කරි.</p></div><div class="price-tag">Rs. 900.00</div></div>
-            <div class="menu-card"><div><h3>Prawns Rice & Curry</h3><p>රැකුගත් නැවුම් ඉස්සන් සමඟ බත්.</p></div><div class="price-tag">Rs. 900.00</div></div>
-            <div class="menu-card"><div><h3>Cuttlefish Rice & Curry</h3><p>දැල්ලි කරි සමඟ විශේෂ බත් එකතුවක්.</p></div><div class="price-tag">Rs. 900.00</div></div>
-            <div class="menu-card"><div><h3>Lake Fish Rice & Curry</h3><p>ප්‍රණීත වැව් මාළු සමඟ බත්.</p></div><div class="price-tag">Rs. 900.00</div></div>
-            <div class="menu-card"><img src="Yellow Rice & Curry.jpg" alt="Yellow Special Rice"><div><h3>Yellow Special Rice & Curry</h3><p>විශේෂ කහ බත් සංග්‍රහය.</p></div><div class="price-tag">Rs. 1,150.00</div></div>
+            <!-- Fried Rice -->
+            <h2 class="category-title">🍳 Fried Rice</h2>
+            <div class="menu-grid">
+                <div class="menu-card"><div><h3>Egg Fried Rice (Keeri Samba)</h3><div class="price-tag">Rs. 850</div></div><button class="add-btn" onclick="addToCart('Egg Fried Rice (Keeri Samba)', 850)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Chicken Fried Rice (Keeri Samba)</h3><div class="price-tag">Rs. 950</div></div><button class="add-btn" onclick="addToCart('Chicken Fried Rice (Keeri Samba)', 950)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Chicken Fried Rice (Basmathi)</h3><div class="price-tag">Rs. 1,150</div></div><button class="add-btn" onclick="addToCart('Chicken Fried Rice (Basmathi)', 1150)">Add to Cart</button></div>
+                <div class="menu-card"><img src="Mix Rice.jpeg" alt="Mix Rice"><div><h3>Mix Fried Rice</h3><div class="price-tag">Rs. 1,750 - 1,850</div></div><button class="add-btn" onclick="addToCart('Mix Fried Rice', 1750)">Add to Cart</button></div>
+                <div class="menu-card"><img src="Prowns Frid Rice.jpg" alt="Seafood Rice"><div><h3>Seafood Fried Rice</h3><div class="price-tag">Rs. 1,750 - 1,850</div></div><button class="add-btn" onclick="addToCart('Seafood Fried Rice', 1750)">Add to Cart</button></div>
+            </div>
+
+            <!-- Kottu -->
+            <h2 class="category-title">🥘 Kottu Specialties</h2>
+            <div class="menu-grid">
+                <div class="menu-card"><div><h3>Vegetable Kottu</h3><div class="price-tag">Rs. 750</div></div><button class="add-btn" onclick="addToCart('Vegetable Kottu', 750)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Egg Kottu</h3><div class="price-tag">Rs. 850</div></div><button class="add-btn" onclick="addToCart('Egg Kottu', 850)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Chicken Kottu</h3><div class="price-tag">Rs. 950</div></div><button class="add-btn" onclick="addToCart('Chicken Kottu', 950)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Chicken Cheese Kottu</h3><div class="price-tag">Rs. 1,350</div></div><button class="add-btn" onclick="addToCart('Chicken Cheese Kottu', 1350)">Add to Cart</button></div>
+                <div class="menu-card"><div><h3>Mix Kottu</h3><div class="price-tag">Rs. 1,750</div></div><button class="add-btn" onclick="addToCart('Mix Kottu', 1750)">Add to Cart</button></div>
+            </div>
         </div>
 
-        <!-- Fried Rice -->
-        <h2 class="category-title">🍳 Fried Rice</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Egg Fried Rice</h3><span class="price-sub">Keeri Samba: Rs. 850.00</span><span class="price-sub">Basmathi: Rs. 1,000.00</span></div>
-            <div class="menu-card"><h3>Chicken Fried Rice</h3><span class="price-sub">Keeri Samba: Rs. 950.00</span><span class="price-sub">Basmathi: Rs. 1,150.00</span></div>
-            <div class="menu-card"><h3>Beef Fried Rice</h3><span class="price-sub">Keeri Samba: Rs. 1,200.00</span><span class="price-sub">Basmathi: Rs. 1,600.00</span></div>
-            <div class="menu-card"><h3>Pork Fried Rice</h3><span class="price-sub">Keeri Samba: Rs. 1,200.00</span><span class="price-sub">Basmathi: Rs. 1,600.00</span></div>
-            <div class="menu-card"><img src="Mix Rice.jpeg" alt="Mix Fried Rice"><h3>Mix Fried Rice</h3><span class="price-sub">Keeri Samba: Rs. 1,750.00</span><span class="price-sub">Basmathi: Rs. 1,850.00</span></div>
-            <div class="menu-card"><img src="Prowns Frid Rice.jpg" alt="Seafood Fried Rice"><h3>Seafood Fried Rice</h3><span class="price-sub">Keeri Samba: Rs. 1,750.00</span><span class="price-sub">Basmathi: Rs. 1,850.00</span></div>
+        <!-- Cart Sidebar -->
+        <div class="cart-section" id="cart">
+            <h3>ඇණවුම් මල්ල (Cart)</h3>
+            <div class="cart-items" id="cartItemsList">
+                <p style="color: #777; font-size: 13px;">භාණ්ඩ තෝරා නැත</p>
+            </div>
+            <div class="cart-total">
+                <span>එකතුව (Total):</span>
+                <span id="cartTotal">Rs. 0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutWhatsApp()">WhatsApp හරහා ඔර්ඩර් කරන්න</button>
         </div>
-
-        <!-- Biriyani -->
-        <h2 class="category-title">🍗 Biriyani</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Chicken Biriyani (Normal)</h3><span class="price-sub">Keeri Samba: Rs. 1,150.00</span><span class="price-sub">Basmathi: Rs. 1,300.00</span></div>
-            <div class="menu-card"><h3>Chicken Biriyani Pot (2-3 Pax)</h3><span class="price-sub">Keeri Samba: Rs. 2,400.00</span><span class="price-sub">Basmathi: Rs. 2,700.00</span></div>
-            <div class="menu-card"><h3>Chicken Biriyani Pot (4-5 Pax)</h3><span class="price-sub">Keeri Samba: Rs. 5,000.00</span><span class="price-sub">Basmathi: Rs. 5,400.00</span></div>
-            <div class="menu-card"><h3>Chicken Biriyani Pot (6-7 Pax)</h3><span class="price-sub">Keeri Samba: Rs. 7,500.00</span><span class="price-sub">Basmathi: Rs. 8,000.00</span></div>
-            <div class="menu-card"><h3>Beef Biriyani (Normal)</h3><span class="price-sub">Keeri Samba: Rs. 1,500.00</span><span class="price-sub">Basmathi: Rs. 1,700.00</span></div>
-            <div class="menu-card"><h3>Beef Biriyani Pot (2-3 Pax)</h3><span class="price-sub">Keeri Samba: Rs. 3,000.00</span><span class="price-sub">Basmathi: Rs. 3,500.00</span></div>
-            <div class="menu-card"><h3>Beef Biriyani Pot (4-5 Pax)</h3><span class="price-sub">Keeri Samba: Rs. 6,000.00</span><span class="price-sub">Basmathi: Rs. 7,000.00</span></div>
-            <div class="menu-card"><h3>Beef Biriyani Pot (6-7 Pax)</h3><span class="price-sub">Keeri Samba: Rs. 8,000.00</span><span class="price-sub">Basmathi: Rs. 9,000.00</span></div>
-        </div>
-
-        <!-- Nasi Goreng & Special Rice -->
-        <h2 class="category-title">🍚 Special Rice Specialties</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Nasi Goreng Chicken / Beef / Pork</h3><div class="price-tag">Rs. 1,450.00</div></div>
-            <div class="menu-card"><h3>Nasi Goreng Seafood / Mix</h3><div class="price-tag">Rs. 1,600.00</div></div>
-            <div class="menu-card"><h3>Mongolian Rice (Chicken)</h3><div class="price-tag">Rs. 1,700.00</div></div>
-            <div class="menu-card"><h3>Mongolian Rice (Seafood / Mix / Beef / Pork)</h3><div class="price-tag">Rs. 2,000.00</div></div>
-            <div class="menu-card"><h3>Masala Rice</h3><div class="price-tag">Rs. 1,900.00</div></div>
-            <div class="menu-card"><h3>Chicken Kochchi Rice</h3><div class="price-tag">Rs. 1,900.00</div></div>
-            <div class="menu-card"><h3>Garlic & Chicken Rice</h3><div class="price-tag">Rs. 2,100.00</div></div>
-        </div>
-
-        <!-- Kottu & Cheese Kottu -->
-        <h2 class="category-title">🥘 Kottu Specialties</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Vegetable Kottu</h3><div class="price-tag">Rs. 750.00</div></div>
-            <div class="menu-card"><h3>Egg Kottu</h3><div class="price-tag">Rs. 850.00</div></div>
-            <div class="menu-card"><h3>Chicken Kottu</h3><div class="price-tag">Rs. 950.00</div></div>
-            <div class="menu-card"><h3>Beef / Pork / Prawns / Cuttlefish Kottu</h3><div class="price-tag">Rs. 1,250.00</div></div>
-            <div class="menu-card"><h3>Mix Kottu</h3><div class="price-tag">Rs. 1,750.00</div></div>
-            <div class="menu-card"><h3>Egg Cheese Kottu</h3><div class="price-tag">Rs. 1,000.00</div></div>
-            <div class="menu-card"><h3>Chicken Cheese Kottu</h3><div class="price-tag">Rs. 1,350.00</div></div>
-            <div class="menu-card"><h3>Beef / Pork / Prawns Cheese Kottu</h3><div class="price-tag">Rs. 1,600.00</div></div>
-            <div class="menu-card"><h3>Mix Cheese Kottu</h3><div class="price-tag">Rs. 1,950.00</div></div>
-        </div>
-
-        <!-- Burgers, Submarines & Sandwiches -->
-        <h2 class="category-title">🍔 Burgers, Submarines & Sandwiches</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Chicken Burger</h3><div class="price-tag">Rs. 850.00</div></div>
-            <div class="menu-card"><h3>Crispy Chicken / Pork / Prawns / Beef Burger</h3><div class="price-tag">Rs. 980.00</div></div>
-            <div class="menu-card"><img src="Submarine.jpg" alt="Submarine"><h3>Submarine (Chicken / Crispy / Pork / Prawns / Beef)</h3><span class="price-sub">Normal: Rs. 1,000.00</span><span class="price-sub">With Extra Cheese: Rs. 1,300.00</span></div>
-            <div class="menu-card"><h3>Egg Sandwich</h3><span class="price-sub">Normal: Rs. 550.00</span><span class="price-sub">With Extra Cheese: Rs. 850.00</span></div>
-            <div class="menu-card"><h3>Chicken Sandwich</h3><span class="price-sub">Normal: Rs. 750.00</span><span class="price-sub">With Extra Cheese: Rs. 1,000.00</span></div>
-            <div class="menu-card"><h3>Meat / Prawns Sandwich (Crispy / Pork / Prawns / Beef)</h3><span class="price-sub">Normal: Rs. 815.00</span><span class="price-sub">With Extra Cheese: Rs. 1,100.00</span></div>
-        </div>
-
-        <!-- Kilo Bites -->
-        <h2 class="category-title">🍖 Kilo Bites & Portions</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Devilled / Fried / Stew Chicken</h3><span class="price-sub">500g: Rs. 2,250.00</span><span class="price-sub">1kg: Rs. 3,450.00</span></div>
-            <div class="menu-card"><h3>Devilled / Fried / Stew Beef</h3><span class="price-sub">500g: Rs. 3,150.00</span><span class="price-sub">1kg: Rs. 4,850.00</span></div>
-            <div class="menu-card"><img src="Pork Devilled.jpeg" alt="Devilled Pork"><h3>Devilled / Fried / Stew Pork</h3><span class="price-sub">500g: Rs. 3,150.00</span><span class="price-sub">1kg: Rs. 4,950.00</span></div>
-            <div class="menu-card"><img src="Lake Fish devilled.jpeg" alt="Devilled Fish"><h3>Fish / Cuttlefish Portion (Devilled/Fried/Stew)</h3><span class="price-sub">500g: Rs. 2,850.00</span><span class="price-sub">1kg: Rs. 4,150 - 4,250.00</span></div>
-            <div class="menu-card"><img src="Prowns Devilled.jpeg" alt="Devilled Prawns"><h3>Devilled / Fried / Stew Prawns</h3><span class="price-sub">500g: Rs. 3,150.00</span><span class="price-sub">1kg: Rs. 4,450.00</span></div>
-            <div class="menu-card"><h3>Hot Butter Cuttlefish</h3><span class="price-sub">500g: Rs. 3,500.00</span><span class="price-sub">1kg: Rs. 7,000.00</span></div>
-            <div class="menu-card"><h3>Veggie Bites (Butter Onions / Garlic / Boiled Veg)</h3><span class="price-sub">Rs. 1,000.00 - 1,550.00</span></div>
-        </div>
-
-        <!-- Meat & Seafood Dishes -->
-        <h2 class="category-title">🍽️ Meat & Seafood Dishes</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Chicken Dishes (Devilled/Fried/Chilli/Sweet & Sour)</h3><div class="price-tag">Rs. 1,700 - 1,850.00</div></div>
-            <div class="menu-card"><h3>Hot Butter Chicken</h3><div class="price-tag">Rs. 2,000.00</div></div>
-            <div class="menu-card"><img src="Lake Fish devilled.jpeg" alt="Fish Dishes"><h3>Fish Dishes (Fried/Hot Garlic/Spicy/Sweet & Sour)</h3><div class="price-tag">Rs. 1,995.00</div></div>
-            <div class="menu-card"><h3>Fish Fingers / Stew</h3><div class="price-tag">Rs. 2,200.00</div></div>
-            <div class="menu-card"><img src="Pork Devilled.jpeg" alt="Pork Dishes"><h3>Pork Dishes (Devilled/Fried/Chilli/Black Curry/Pepper)</h3><div class="price-tag">Rs. 2,000.00</div></div>
-            <div class="menu-card"><h3>Beef Dishes (Devilled/Fried/Stew/Chilli/Black Curry/Pepper)</h3><div class="price-tag">Rs. 2,000.00</div></div>
-            <div class="menu-card"><h3>Devilled / Fried Sausages</h3><div class="price-tag">Rs. 1,600 - 1,800.00</div></div>
-            <div class="menu-card"><h3>Cuttlefish Dishes (Devilled/Fried/Spicy/Sweet & Sour)</h3><div class="price-tag">Rs. 1,800.00</div></div>
-        </div>
-
-        <!-- Savouries & Desserts -->
-        <h2 class="category-title">🍨 Savouries & Desserts</h2>
-        <div class="menu-grid">
-            <div class="menu-card"><h3>Sri Lankan Omelette</h3><div class="price-tag">Rs. 350.00</div></div>
-            <div class="menu-card"><h3>Chicken Omelette</h3><div class="price-tag">Rs. 550.00</div></div>
-            <div class="menu-card"><h3>Cheese Omelette</h3><div class="price-tag">Rs. 750.00</div></div>
-            <div class="menu-card"><h3>Chicken & Cheese Omelette</h3><div class="price-tag">Rs. 850.00</div></div>
-            <div class="menu-card"><h3>Ice Cream</h3><div class="price-tag">Rs. 250.00</div></div>
-            <div class="menu-card"><h3>Watalappan</h3><div class="price-tag">Rs. 250.00</div></div>
-            <div class="menu-card"><h3>Yoghurt</h3><div class="price-tag">Rs. 100.00</div></div>
-        </div>
-
     </div>
 
-    <footer id="dinein">
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const listContainer = document.getElementById('cartItemsList');
+            const totalContainer = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                listContainer.innerHTML = '<p style="color: #777; font-size: 13px;">භාණ්ඩ තෝරා නැත</p>';
+                totalContainer.innerHTML = 'Rs. 0.00';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `<div class="cart-item"><span>${item.name}</span> <b>Rs. ${item.price}</b></div>`;
+            });
+
+            listContainer.innerHTML = html;
+            totalContainer.innerHTML = 'Rs. ' + total.toLocaleString();
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('කරුණාකර මුලින්ම කෑම වර්ගයක් තෝරා ගන්න!');
+                return;
+            }
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let message = " வணக்கம்! මම පහත සඳහන් ආහාර ඇණවුම් කිරීමට කැමැත්තෙමි:\n\n";
+            cart.forEach(item => {
+                message += `- ${item.name}: Rs. ${item.price}\n`;
+            });
+            message += `\nඑකතුව (Total): Rs. ${total.toLocaleString()}`;
+            
+            let url = `https://wa.me/94773576129?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+    <footer>
         <p>© 2026 Grosvenor Grand Hotel - Warakapola. All Rights Reserved.</p>
         <p>WhatsApp: 077 357 6129 | Direct Line: 070 706 6863</p>
     </footer>
